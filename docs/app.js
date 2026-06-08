@@ -75,8 +75,21 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // Initial KaTeX render
-  setTimeout(renderMath, 500);
+  // Initial KaTeX render (ensure KaTeX is loaded)
+  function tryRenderMath() {
+    if (typeof renderMathInElement === 'function') {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false}
+        ],
+        throwOnError: false
+      });
+    } else {
+      setTimeout(tryRenderMath, 200);
+    }
+  }
+  tryRenderMath();
 
   // Initialize quiz if navigating to quiz section
   const quizContainer = document.getElementById('quizContainer');
