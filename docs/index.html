@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>儀器分析二 考試總複習 — 質譜 & 電分析化學</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Top Bar (mobile) -->
+  <div class="topbar">
+    <button class="topbar-toggle" onclick="toggleSidebar()">☰</button>
+    <span class="topbar-title">📋 儀器分析二 複習</span>
+    <div class="topbar-actions">
+      <span class="quiz-timer" id="mobileTimer" style="display:none"></span>
+    </div>
+  </div>
+
+  <!-- Sidebar Overlay -->
+  <div class="sidebar-overlay" onclick="closeSidebar()"></div>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h2>📋 儀器分析二</h2>
+      <small>期末考總複習</small>
+    </div>
+    <div class="sidebar-nav">
+      <a href="#" data-section="exam-info" class="active"><span class="nav-icon">📢</span> 考試資訊</a>
+      <a href="#" data-section="ch20"><span class="nav-icon">🔬</span> Ch20 質譜法</a>
+      <a href="#" data-section="ch22-25"><span class="nav-icon">⚡</span> Ch22-25 電分析化學</a>
+      <a href="#" data-section="comparison"><span class="nav-icon">📊</span> 比較表</a>
+      <a href="#" data-section="definitions"><span class="nav-icon">📖</span> 定義速查</a>
+      <a href="#" data-section="formulas"><span class="nav-icon">🔢</span> 公式速查</a>
+      <a href="#" data-section="prediction"><span class="nav-icon">🎯</span> 考題預測</a>
+      <a href="#" data-section="quiz"><span class="nav-icon">✍️</span> 模擬測驗</a>
+    </div>
+    <div class="sidebar-footer">
+      <div class="theme-toggle" onclick="toggleTheme()">
+        <span>☀️</span>
+        <div class="toggle-track"><div class="toggle-thumb"></div></div>
+        <span>🌙</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main -->
+  <div class="main">
+    <div class="main-content">
+
+      <!-- ========== 考試資訊 ========== -->
+      <div class="section active" id="sec-exam-info">
+        <h1>📢 考試資訊</h1>
+        <div class="exam-info-grid">
+          <div class="exam-info-item">
+            <div class="label">考試範圍</div>
+            <div class="value">Ch20 + Ch22-25</div>
+          </div>
+          <div class="exam-info-item">
+            <div class="label">Ch20 主題</div>
+            <div class="value">質譜法 (MS)</div>
+          </div>
+          <div class="exam-info-item">
+            <div class="label">Ch22-25 主題</div>
+            <div class="value">電分析化學</div>
+          </div>
+          <div class="exam-info-item">
+            <div class="label">題型</div>
+            <div class="value">選擇 + 計算 + 簡答</div>
+          </div>
+        </div>
+
+        <h2>🔴 必考重點（一定要會）</h2>
+        <div class="card priority-red">
+          <ol>
+            <li>硬離子源 vs 軟離子源比較（碎片、分子離子峰）</li>
+            <li>磁扇區公式計算（m/z = B²r²e/2V）</li>
+            <li>解析度計算（R = m̄/Δm）</li>
+            <li>Nernst 方程式計算（25°C 簡化版）</li>
+            <li>E_cell = E_right − E_left</li>
+            <li>同位素判斷（Cl 3:1、Br 1:1）</li>
+            <li>四種掃描模式區分</li>
+          </ol>
+        </div>
+
+        <h2>🟡 高頻考題</h2>
+        <div class="card priority-yellow">
+          <ol start="8">
+            <li>特徵碎片判斷化合物（醛29、酮43、醇31、芳香族91）</li>
+            <li>四極柱篩選原理（m/z 太小/太大/剛好）</li>
+            <li>CV 可逆性判斷（ΔE_p ≈ 59/n mV）</li>
+            <li>三電極系統各角色</li>
+            <li>參考電極比較（SHE/SCE/Ag-AgCl）</li>
+          </ol>
+        </div>
+
+        <h2>🟢 可能出現</h2>
+        <div class="card priority-green">
+          <ol start="13">
+            <li>離子源選擇題（給需求選離子源）</li>
+            <li>動能計算（KE = zeV）</li>
+            <li>定電位安培法應用</li>
+            <li>Randles-Ševčík 方程式</li>
+          </ol>
+        </div>
+
+        <h2>📝 指定作業（考題可能從這出）</h2>
+        <div class="card">
+          <p><strong>Ch20：</strong>20-5a, 20-7, 20-11a, 20-13a</p>
+          <p><strong>Ch22-25：</strong>例題 22-2, Example A（Ag/AgCl 電位計算）</p>
+        </div>
+      </div>
+
+      <!-- ========== Ch20 質譜法 ========== -->
+      <div class="section" id="sec-ch20">
+        <h1>🔬 Chapter 20 — 質譜法 (Mass Spectrometry)</h1>
+
+        <!-- 歷史與基本原理 -->
+        <div class="collapsible-header open" onclick="toggleCollapsible(this)">
+          一、質譜基本原理 <span class="arrow">▶</span>
+        </div>
+        <div class="collapsible-body open">
+          <div class="definition">
+            <div class="def-term">質譜法 (Mass Spectrometry)</div>
+            <p>根據<strong>荷質比（mass-to-charge ratio, m/z）</strong>來分析離子的技術</p>
+            <div class="def-en">A technique for analyzing ions based on their mass-to-charge ratio (m/z).</div>
+          </div>
+          <p>質譜不是「看光吸收」，而是<strong>打碎分子，秤碎片重量</strong>。</p>
+          <p>核心流程：<strong>帶電 → 加速 → 偏轉 → 偵測</strong></p>
+          <img class="slide-img" src="images/ms/page05.png" alt="質譜儀基本原理" onclick="openLightbox(this)">
+          <img class="slide-img" src="images/ms/page08.png" alt="MS 定義" onclick="openLightbox(this)">
+
+          <h3>歷史人物</h3>
+          <ul>
+            <li><strong>Dalton（1803）</strong>：提出原子論，H = 1 amu，Da 單位由來</li>
+            <li><strong>Cannizzaro（1860）</strong>：用 O = 16 amu 做標準</li>
+            <li><strong>Aston（1919）</strong>：發明第一台質譜儀，<strong>1922 年諾貝爾化學獎</strong></li>
+          </ul>
+          <img class="slide-img" src="images/ms/page03.png" alt="Dalton & Cannizzaro" onclick="openLightbox(this)">
+          <img class="slide-img" src="images/ms/page04.png" alt="Aston 與質譜儀" onclick="openLightbox(this)">
+
+          <h3>精確原子量</h3>
+          <p>C = 12.0000, H = 1.0078, O = 15.9949, N = 14.0031</p>
+          <p>高解析質譜靠這些微小差異區分不同分子式</p>
+          <img class="slide-img" src="images/ms/page06.png" alt="週期表與精確原子量" onclick="openLightbox(this)">
+        </div>
+
+        <!-- 離子源 -->
+        <div class="collapsible-header" onclick="toggleCollapsible(this)">
+          二、離子源 — 硬離子源 vs 軟離子源 <span class="arrow">▶</span>
+        </div>
+        <div class="collapsible-body">
+          <div class="definition">
+            <div class="def-term">硬離子源 (Hard Ionization)</div>
+            <p>能量大，碎片多，分子離子峰弱，但<strong>結構資訊豐富</strong></p>
+            <div class="def-en">High-energy ionization producing extensive fragmentation but rich structural information.</div>
+          </div>
+          <div class="definition">
+            <div class="def-term">軟離子源 (Soft Ionization)</div>
+            <p>能量小，碎片少，<strong>分子離子峰強</strong>，但結構資訊少</p>
+            <div class="def-en">Low-energy ionization producing intact molecular ions with minimal fragmentation.</div>
+          </div>
+          <img class="slide-img" src="images/ms/page10.png" alt="硬 vs 軟離子源" onclick="openLightbox(this)">
+          <p><strong>口訣：硬碎結構清，軟整分子明</strong></p>
+
+          <h3>四種游離方式</h3>
+          <ol>
+            <li><strong>電子捕捉</strong>：M + e⁻ → M⁻•</li>
+            <li><strong>分解電子捕捉</strong>：AB + e⁻ → A⁻ + B•</li>
+            <li><strong>分解離子化</strong>：AB + e⁻ → A⁺ + B⁻ + e⁻</li>
+            <li><strong>產生離子對</strong>：AB + e⁻ → A⁺ + B⁻ + 2e⁻</li>
+          </ol>
+          <img class="slide-img" src="images/ms/page09.png" alt="四種游離方式" onclick="openLightbox(this)">
+
+          <h3>1. EI 電子游離 (Electron Ionization)</h3>
+          <ul>
+            <li><strong>最經典的硬離子源</strong>，70 eV 電子束撞擊</li>
+            <li>反應式：<strong>M + e⁻ → M⁺• + 2e⁻</strong></li>
+            <li>碎片多，結構資訊豐富，但分子離子峰可能很弱</li>
+          </ul>
+          <img class="slide-img" src="images/ms/page11.png" alt="EI 電子游離" onclick="openLightbox(this)">
+
+          <h3>2. CI 化學游離 (Chemical Ionization)</h3>
+          <ul>
+            <li>軟離子源，先游離試劑氣體再撞擊樣品</li>
+            <li>主要反應：<strong>質子轉移</strong> CH₅⁺ + M → MH⁺ + CH₄</li>
+            <li>分子離子峰出現在 <strong>M+1</strong> 位置</li>
+          </ul>
+          <img class="slide-img" src="images/ms/page13.png" alt="CI 化學游離" onclick="openLightbox(this)">
+          <img class="slide-img" src="images/ms/page14.png" alt="CI 反應式" onclick="openLightbox(this)">
+          <p>質子親和力：NH₃(207) > i-C₄H₁₀(195) > H₂O(164) > C₂H₆(159) > CH₄(127) > H₂(101)</p>
+          <img class="slide-img" src="images/ms/page15.png" alt="質子親和力" onclick="openLightbox(this)">
+          <img class="slide-img" src="images/ms/page22.png" alt="EI vs CI 比較" onclick="openLightbox(this)">
+
+          <h3>3. FAB 快速原子撞擊 (Fast Atom Bombardment)</h3>
+          <ul>
+            <li>軟離子源：快原子撞擊樣品表面使分子脫附</li>
+            <li>適合極性大、熱不穩定分子（胜肽、醣類）</li>
+            <li>樣品溶在甘油基質中</li>
+          </ul>
+          <img class="slide-img" src="images/ms/page16.png" alt="FAB" onclick="openLightbox(this)">
+
+          <h3>4. MALDI 基質輔助雷射脫附游離</h3>
+          <ul>
+            <li>軟離子源：基質吸收雷射能量，溫和脫附樣品</li>
+            <li>基質三要件：<strong>溶、吸、酸</strong>（互溶、吸雷射、酸性質子）</li>
+            <li><strong>田中耕一</strong> — 2002 年諾貝爾化學獎</li>
+            <li>特色：單電荷為主 [M+H]⁺，圖譜簡單</li>
+          </ul>
+          <img class="slide-img" src="images/ms/page17.png" alt="MALDI" onclick="openLightbox(this)">
+          <img class="slide-img" src="images/ms/page18.png" alt="MALDI 基質三要件" onclick="openLightbox(this)">
+
+          <h3>5. ESI 電灑游離 (Electrospray Ionization)</h3>
+          <ul>
+            <li>軟離子源：帶電液滴 → 溶劑蒸發 → <strong>庫侖爆炸</strong> → 多電荷離子</li>
+            <li><strong>多電荷</strong>是最大特色：大分子 m/z 仍落在儀器範圍內</li>
+            <li><strong>Fenn</strong> — 2002 年諾貝爾化學獎（與田中耕一同年）</li>
+            <li>常與 LC 串聯（LC-MS）</li>
+          </ul>
+          <img class="slide-img" src="images/ms/page19.png" alt="ESI" onclick="openLightbox(this)">
+          <img class="slide-img" src="images/ms/page23.png" alt="ESI 多電荷" onclick="openLightbox(this)">
+
+          <h3>6. DESI 脫附電灑游離</h3>
+          <ul>
+            <li>軟離子源：ESI 產生的帶電液滴噴向固體表面</li>
+            <li><strong>免前處理</strong>，可直接分析固體表面</li>
+            <li>環境游離的代表</li>
+          </ul>
+          <img class="slide-img" src="images/ms/page20.png" alt="DESI" onclick="openLightbox(this)">
+          <img class="slide-img" src="images/ms/page24.png" alt="MALDI 應用" onclick="openLightbox(this)">
+        </div>
+
+        <!-- 質量分析器 -->
+        <div class="collapsible-header" onclick="toggleCollapsible(this)">
+          三、質量分析器 <span class="arrow">▶</span>
+        </div>
+        <div class="collapsible-body">
+          <h3>1. 磁扇區 (Magnetic Sector)</h3>
+          <ul>
+            <li>離子在磁場中偏轉，不同 m/z 偏轉半徑不同</li>
+            <li><strong>公式：m/z = B²r²e / 2V</strong></li>
+            <li>優點：高解析度、質量範圍大</li>
+            <li>缺點：昂貴、體積大、掃描慢</li>
+          </ul>
+          <img class="slide-img" src="images/ms/page26.png" alt="磁扇區" onclick="openLightbox(this)">
+          <img class="slide-img" src="images/ms/page27.png" alt="磁扇區推導" onclick="openLightbox(this)">
+          <img class="slide-img" src="images/ms/page28.png" alt="磁扇區推導完成" onclick="openLightbox(this)">
+
+          <h3>雙焦點質譜儀</h3>
+          <p>ESA（靜電分析器）+ 磁場 + 狹縫 = 能量 + 方向雙重聚焦 = 高解析</p>
+          <img class="slide-img" src="images/ms/page31.png" alt="雙焦點質譜儀" onclick="openLightbox(this)">
+
+          <h3>2. 四極柱 (Quadrupole)</h3>
+          <ul>
+            <li>DC + RF 混合電壓，只有特定 m/z 能穩定通過</li>
+            <li>m/z 太小 → 震盪不穩定 → 撞極柱</li>
+            <li>m/z 剛好 → 穩定通過 → 偵測器</li>
+            <li>m/z 太大 → DC 推向外側 → 撞極柱</li>
+            <li>優點：小、便宜、掃描快；缺點：質量範圍小、解析一般</li>
+          </ul>
+          <img class="slide-img" src="images/ms/page30.png" alt="四極柱示意圖" onclick="openLightbox(this)">
+          <img class="slide-img" src="images/ms/page32.png" alt="四極柱 DC+RF" onclick="openLightbox(this)">
+          <img class="slide-img" src="images/ms/page33.png" alt="四極柱 m/z 剛好" onclick="openLightbox(this)">
+          <img class="slide-img" src="images/ms/page34.png" alt="四極柱 m/z 太小" onclick="openLightbox(this)">
+          <img class="slide-img" src="images/ms/page35.png" alt="四極柱 m/z 太大" onclick="openLightbox(this)">
+          <img class="slide-img" src="images/ms/page36.png" alt="四極柱總結" onclick="openLightbox(this)">
+
+          <h3>3. 離子阱 (Ion Trap)</h3>
+          <ul>
+            <li>離子被射頻電場困住，依序釋放不同 m/z</li>
+            <li>最大特色：<strong>可做 MSⁿ</strong>（多次碎裂）</li>
+            <li><strong>Dehmelt</strong> — 1989 年諾貝爾物理獎</li>
+            <li>優點：小、便宜、靈敏度高</li>
+          </ul>
+          <img class="slide-img" src="images/ms/page37.png" alt="離子阱" onclick="openLightbox(this)">
+
+          <h3>4. TOF 飛行時間 (Time of Flight)</h3>
+          <ul>
+            <li>輕的離子飛得快，重的飛得慢，測到達時間反推 m/z</li>
+            <li><strong>t ∝ √(m/z)</strong></li>
+            <li>優點：高解析、質量範圍極大（理論無上限）、掃描極快</li>
+            <li>缺點：體積大時不易串聯 MS/MS</li>
+          </ul>
+          <img class="slide-img" src="images/ms/page38.png" alt="TOF" onclick="openLightbox(this)">
+
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>分析器</th><th>原理</th><th>優點</th><th>缺點</th><th>特色</th></tr></thead>
+              <tbody>
+                <tr><td>磁扇區</td><td>磁場偏轉</td><td>高解析、質量範圍大</td><td>貴、大、慢</td><td>m/z = B²r²e/2V</td></tr>
+                <tr><td>四極柱</td><td>DC+RF 過濾</td><td>小、便宜、快</td><td>質量範圍小、解析一般</td><td>質量濾波器</td></tr>
+                <tr><td>離子阱</td><td>射頻囚禁</td><td>小、便宜、可 MSⁿ</td><td>質量範圍小、離子抑制</td><td>MSⁿ</td></tr>
+                <tr><td>TOF</td><td>飛行時間</td><td>高解析、大範圍、極快</td><td>大、不易串聯</td><td>輕快重慢</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <img class="slide-img" src="images/ms/page39.png" alt="分析器比較表" onclick="openLightbox(this)">
+          <p><strong>口訣：磁扇區高準貴大，四極柱小便宜快，離子阱 MSⁿ 小靈敏，TOF 大範圍超快</strong></p>
+        </div>
+
+        <!-- 正負離子模式 -->
+        <div class="collapsible-header" onclick="toggleCollapsible(this)">
+          四、正負離子模式與基峰 <span class="arrow">▶</span>
+        </div>
+        <div class="collapsible-body">
+          <h3>正負離子模式</h3>
+          <ul>
+            <li><strong>正離子模式</strong>：偵測 [M+H]⁺、[M+Na]⁺ 等</li>
+            <li><strong>負離子模式</strong>：偵測 [M-H]⁻ 等</li>
+            <li>一次分析只能選一種模式！</li>
+          </ul>
+          <img class="slide-img" src="images/ms/page40.png" alt="正負離子模式" onclick="openLightbox(this)">
+
+          <h3>基峰 (Base Peak)</h3>
+          <div class="definition">
+            <div class="def-term">基峰 (Base Peak)</div>
+            <p>質譜圖中訊號最強的峰，設為 100%</p>
+            <div class="def-en">The most intense peak in a mass spectrum, set to 100% relative intensity.</div>
+          </div>
+          <p>基峰 ≠ 分子離子峰！基峰可能是碎片峰。</p>
+          <p>常見加成物：[M+Na]⁺、[M+K]⁺、[M+H-H₂O]⁺</p>
+          <img class="slide-img" src="images/ms/page41.png" alt="基峰與加成物" onclick="openLightbox(this)">
+        </div>
+
+        <!-- 碎片規律 -->
+        <div class="collapsible-header" onclick="toggleCollapsible(this)">
+          五、特徵碎片與化合物判斷 <span class="arrow">▶</span>
+        </div>
+        <div class="collapsible-body">
+          <p><strong>四大特徵碎片口訣：醛 29、酮 43、醇 31、芳香族 91</strong></p>
+
+          <h3>醛類 — m/z = 29 基峰</h3>
+          <ul>
+            <li><strong>m/z = 29（CHO⁺）必為基峰</strong></li>
+            <li>[M-29]⁺：失去 CHO</li>
+            <li>[M-15]⁺：失去 CH₃</li>
+          </ul>
+          <img class="slide-img" src="images/ms/page42.png" alt="醛類 m/z=29" onclick="openLightbox(this)">
+          <img class="slide-img" src="images/ms/page43.png" alt="醛類碎片" onclick="openLightbox(this)">
+
+          <h3>酮類 — 甲基酮基峰 m/z = 43</h3>
+          <ul>
+            <li><strong>m/z = 43（CH₃CO⁺，乙醯基離子）基峰</strong></li>
+            <li>越大烷基越容易斷（α 斷裂）</li>
+          </ul>
+          <img class="slide-img" src="images/ms/page44.png" alt="酮類 m/z=43" onclick="openLightbox(this)">
+          <img class="slide-img" src="images/ms/page45.png" alt="酮類碎片" onclick="openLightbox(this)">
+
+          <h3>羧酸與酯</h3>
+          <ul>
+            <li>羰基兩側都可能斷裂</li>
+            <li>酯類偏好斷 C-O 鍵（產生穩定醯基離子）</li>
+          </ul>
+          <img class="slide-img" src="images/ms/page46.png" alt="羧酸與酯" onclick="openLightbox(this)">
+          <img class="slide-img" src="images/ms/page47.png" alt="羧酸與酯碎片" onclick="openLightbox(this)">
+
+          <h3>醇類 — m/z = 31</h3>
+          <ul>
+            <li><strong>m/z = 31（CH₂OH⁺）</strong> 是醇的標誌碎片</li>
+            <li>短鏈醇：脫氫 [M-1]⁺</li>
+            <li>長鏈醇：脫水 [M-18]⁺</li>
+          </ul>
+          <p><strong>口訣：短醇脫氫(-1)，長醇脫水(-18)</strong></p>
+          <img class="slide-img" src="images/ms/page48.png" alt="醇類" onclick="openLightbox(this)">
+          <img class="slide-img" src="images/ms/page49.png" alt="醇類 m/z=31" onclick="openLightbox(this)">
+
+          <h3>芳香族 — m/z = 91 草鎖離子</h3>
+          <ul>
+            <li><strong>m/z = 91（C₇H₇⁺，草鎖離子 Tropylium Ion）</strong></li>
+            <li>含苯環連一個碳的化合物都可能產生</li>
+          </ul>
+          <img class="slide-img" src="images/ms/page50.png" alt="芳香族 m/z=91" onclick="openLightbox(this)">
+
+          <h3>醇類 EI 特徵</h3>
+          <img class="slide-img" src="images/ms/page21.png" alt="1-pentanol EI" onclick="openLightbox(this)">
+        </div>
+
+        <!-- 同位素 -->
+        <div class="collapsible-header" onclick="toggleCollapsible(this)">
+          六、同位素判斷 <span class="arrow">▶</span>
+        </div>
+        <div class="collapsible-body">
+          <div class="definition">
+            <div class="def-term">同位素 (Isotope)</div>
+            <p>質子數相同、中子數不同的同一元素，質譜可區分</p>
+            <div class="def-en">Atoms of the same element with different numbers of neutrons.</div>
+          </div>
+
+          <div class="card">
+            <div class="card-title">📌 鹵素同位素必背</div>
+            <ul>
+              <li><strong>Cl</strong>：³⁵Cl:³⁷Cl = <strong>3:1</strong>，含一個 Cl → M : M+2 ≈ 3:1</li>
+              <li><strong>Br</strong>：⁷⁹Br:⁸¹Br ≈ <strong>1:1</strong>，含一個 Br → M : M+2 ≈ 1:1</li>
+              <li><strong>雙 Cl</strong>：M : M+2 : M+4 = <strong>9:6:1</strong></li>
+            </ul>
+          </div>
+          <img class="slide-img" src="images/ms/page51.png" alt="同位素定義" onclick="openLightbox(this)">
+          <img class="slide-img" src="images/ms/page52.png" alt="Cl 和 Br 同位素" onclick="openLightbox(this)">
+          <img class="slide-img" src="images/ms/page53.png" alt="單一鹵素同位素" onclick="openLightbox(this)">
+          <img class="slide-img" src="images/ms/page54.png" alt="雙氯同位素" onclick="openLightbox(this)">
+          <p><strong>口訣：Cl 三比一，Br 一比一，雙 Cl 9:6:1</strong></p>
+        </div>
+
+        <!-- 解析度 -->
+        <div class="collapsible-header" onclick="toggleCollapsible(this)">
+          七、解析度與計算 <span class="arrow">▶</span>
+        </div>
+        <div class="collapsible-body">
+          <div class="definition">
+            <div class="def-term">解析度 (Resolution)</div>
+            <p>R = m̄ / Δm，分辨相近質量離子的能力</p>
+            <div class="def-en">The ability to distinguish between two ions of similar mass.</div>
+          </div>
+          <div class="formula-card">R = m̄ / Δm</div>
+          <div class="formula-desc">
+            <span>m̄ = 兩峰質量平均值</span>
+            <span>Δm = 兩峰質量差</span>
+          </div>
+          <img class="slide-img" src="images/ms/page55.png" alt="解析度" onclick="openLightbox(this)">
+          <img class="slide-img" src="images/ms/page56.png" alt="Example 20-3" onclick="openLightbox(this)">
+        </div>
+
+        <!-- 串聯質譜 -->
+        <div class="collapsible-header" onclick="toggleCollapsible(this)">
+          八、串聯質譜 (MS/MS) <span class="arrow">▶</span>
+        </div>
+        <div class="collapsible-body">
+          <p>MS/MS 解決<strong>同分異構物</strong>問題：分子式相同但結構不同</p>
+          <img class="slide-img" src="images/ms/page57.png" alt="MS/MS 為什麼需要" onclick="openLightbox(this)">
+
+          <h3>CID 碰撞誘導解離</h3>
+          <p>三重四極柱：<strong>Q1（選）→ Q2（撞）→ Q3（析）</strong></p>
+          <img class="slide-img" src="images/ms/page58.png" alt="CID" onclick="openLightbox(this)">
+
+          <h3>MSⁿ</h3>
+          <p>離子阱可做 MSⁿ（反覆捕捉碎裂），三重四極柱只能做 MS²</p>
+          <img class="slide-img" src="images/ms/page59.png" alt="MSⁿ" onclick="openLightbox(this)">
+
+          <h3>四種掃描模式</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>模式</th><th>固定</th><th>掃描</th><th>問題</th></tr></thead>
+              <tbody>
+                <tr><td>Product Ion Scan</td><td>母離子 m/z</td><td>所有子離子</td><td>這離子碎成什麼？</td></tr>
+                <tr><td>Precursor Ion Scan</td><td>子離子 m/z</td><td>所有母離子</td><td>誰碎出這個碎片？</td></tr>
+                <tr><td>Neutral Loss Scan</td><td>丟失質量</td><td>符合的母離子</td><td>誰丟了這個質量？</td></tr>
+                <tr><td>SRM/MRM</td><td>母→子 m/z 對</td><td>無</td><td>特定轉換，最靈敏</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <img class="slide-img" src="images/ms/page60.png" alt="四種掃描模式" onclick="openLightbox(this)">
+          <img class="slide-img" src="images/ms/page62.png" alt="Product Ion Scan" onclick="openLightbox(this)">
+          <img class="slide-img" src="images/ms/page63.png" alt="Precursor Ion Scan" onclick="openLightbox(this)">
+          <img class="slide-img" src="images/ms/page64.png" alt="Neutral Loss Scan" onclick="openLightbox(this)">
+          <img class="slide-img" src="images/ms/page65.png" alt="SRM" onclick="openLightbox(this)">
+          <p><strong>口訣：子離子掃描看碎什麼，母離子掃描找誰碎的，中性丟失看丟什麼，SRM 看特定轉換</strong></p>
+
+          <h3>碰撞能量影響</h3>
+          <p>低能量 → 分子離子峰強、碎片少；高能量 → 碎片多、分子離子峰弱</p>
+          <img class="slide-img" src="images/ms/page61.png" alt="碰撞能量與 Oseltamivir" onclick="openLightbox(this)">
+        </div>
+
+        <!-- 重點摘要 -->
+        <div class="collapsible-header" onclick="toggleCollapsible(this)">
+          九、Ch20 重點摘要 <span class="arrow">▶</span>
+        </div>
+        <div class="collapsible-body">
+          <img class="slide-img" src="images/ms/page66.png" alt="Ch20 摘要" onclick="openLightbox(this)">
+          <img class="slide-img" src="images/ms/page67.png" alt="Ch20 作業" onclick="openLightbox(this)">
+          <img class="slide-img" src="images/ms/page68.png" alt="定義複習" onclick="openLightbox(this)">
+          <img class="slide-img" src="images/ms/page69.png" alt="公式複習一" onclick="openLightbox(this)">
+          <img class="slide-img" src="images/ms/page70.png" alt="公式複習二" onclick="openLightbox(this)">
+
+          <div class="card">
+            <div class="card-title">📌 離子源口訣</div>
+            <p>硬碎結構清，軟整分子明</p>
+            <ul>
+              <li>EI = 硬（70 eV）</li>
+              <li>CI = 軟（間接游離）</li>
+              <li>FAB = 軟（快原子撞）</li>
+              <li>MALDI = 軟（基質幫忙，田中耕一）</li>
+              <li>ESI = 軟（電灑多電荷，Fenn）</li>
+              <li>DESI = 軟（免前處理）</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-title">📌 碎片口訣</div>
+            <p>醛 29、酮 43、醇 31、芳香族 91</p>
+            <p>短醇脫氫(-1)，長醇脫水(-18)</p>
+          </div>
+          <div class="card">
+            <div class="card-title">📌 分析器口訣</div>
+            <p>磁扇區高準貴大，四極柱小便宜快，離子阱 MSⁿ 小靈敏，TOF 大範圍超快</p>
+          </div>
+          <div class="card">
+            <div class="card-title">📌 必背公式</div>
+            <ul>
+              <li>KE = zeV</li>
+              <li>m/z = B²r²e / 2V</li>
+              <li>R = m̄ / Δm</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========== Ch22-25 電分析化學 ========== -->
+      <div class="section" id="sec-ch22-25">
+        <h1>⚡ Chapter 22-25 — 電分析化學 (Electroanalytical Chemistry)</h1>
+
+        <!-- 氧化還原基礎 -->
+        <div class="collapsible-header open" onclick="toggleCollapsible(this)">
+          一、氧化還原與電化學電池 <span class="arrow">▶</span>
+        </div>
+        <div class="collapsible-body open">
+          <div class="definition">
+            <div class="def-term">氧化 (Oxidation)</div>
+            <p>失去電子，氧化數增加</p>
+            <div class="def-en">LEO — Lose Electrons = Oxidation</div>
+          </div>
+          <div class="definition">
+            <div class="def-term">還原 (Reduction)</div>
+            <p>得到電子，氧化數減少</p>
+            <div class="def-en">GER — Gain Electrons = Reduction</div>
+          </div>
+          <p><strong>口訣：LEO says GER 🔥</strong></p>
+          <img class="slide-img" src="images/electrochem/page03.png" alt="氧化還原" onclick="openLightbox(this)">
+
+          <h3>電化學電池</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>電極</th><th>發生什麼</th><th>記法</th></tr></thead>
+              <tbody>
+                <tr><td>陰極 Cathode</td><td>還原反應（得到電子）</td><td>Cat 還</td></tr>
+                <tr><td>陽極 Anode</td><td>氧化反應（失去電子）</td><td>An 氧</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <img class="slide-img" src="images/electrochem/page04.png" alt="電化學電池" onclick="openLightbox(this)">
+
+          <h3>Plus Right Rule</h3>
+          <p><strong>E_cell = E_right − E_left</strong></p>
+          <p>正極永遠接右邊的半電池</p>
+          <img class="slide-img" src="images/electrochem/page05.png" alt="Plus Right Rule" onclick="openLightbox(this)">
+
+          <h3>電池表示法</h3>
+          <p>Cu | Cu²⁺(0.02M) || Ag⁺(0.02M) | Ag</p>
+          <p><strong>左氧右還</strong>：左邊是陽極（氧化），右邊是陰極（還原）</p>
+          <img class="slide-img" src="images/electrochem/page06.png" alt="電池表示法" onclick="openLightbox(this)">
+        </div>
+
+        <!-- 標準電極電位 -->
+        <div class="collapsible-header" onclick="toggleCollapsible(this)">
+          二、標準電極電位 <span class="arrow">▶</span>
+        </div>
+        <div class="collapsible-body">
+          <div class="definition">
+            <div class="def-term">標準氫電極 (SHE)</div>
+            <p>所有電極電位的基準，E° = 0.000 V（所有溫度）</p>
+            <div class="def-en">The universal reference for electrode potentials, defined as 0.000 V at all temperatures.</div>
+          </div>
+          <img class="slide-img" src="images/electrochem/page08.png" alt="SHE" onclick="openLightbox(this)">
+
+          <div class="card">
+            <div class="card-title">📌 標準電極電位五大重點</div>
+            <ol>
+              <li><strong>相對 SHE（0.000 V）決定</strong></li>
+              <li><strong>為還原電位</strong>（表列值都是還原反應）</li>
+              <li><strong>標準狀態下得出</strong>（1 M, 1 atm, 25°C）</li>
+              <li><strong>與反應莫耳數無關</strong>（E° 不因計量係數改變！）</li>
+              <li><strong>正電位 = 自發反應</strong></li>
+            </ol>
+          </div>
+          <img class="slide-img" src="images/electrochem/page09.png" alt="Ag 標準電極電位" onclick="openLightbox(this)">
+          <img class="slide-img" src="images/electrochem/page10.png" alt="Cd 標準電極電位" onclick="openLightbox(this)">
+          <img class="slide-img" src="images/electrochem/page11.png" alt="五大重點" onclick="openLightbox(this)">
+          <p><strong>口訣：相對SHE、還原電位、標準狀態、莫耳無關、正=自發</strong></p>
+        </div>
+
+        <!-- Nernst 方程式 -->
+        <div class="collapsible-header" onclick="toggleCollapsible(this)">
+          三、Nernst 方程式 <span class="arrow">▶</span>
+        </div>
+        <div class="collapsible-body">
+          <h3>完整版</h3>
+          <div class="formula-card">E = E° − (RT/nF) × ln(Q)</div>
+          <h3>25°C 簡化版</h3>
+          <div class="formula-card">E = E° − (0.0592/n) × log(Q)</div>
+          <div class="formula-desc">
+            <span>E：非標準狀態電極電位</span>
+            <span>E°：標準電極電位</span>
+            <span>n：轉移電子數</span>
+            <span>Q：反應商（產物/反應物）</span>
+          </div>
+          <img class="slide-img" src="images/electrochem/page12.png" alt="Nernst 方程式" onclick="openLightbox(this)">
+
+          <h3>三個 Nernst 範例</h3>
+          <ol>
+            <li>Zn²⁺ + 2e⁻ ⇌ Zn：E = E° + (0.0592/2) × log[Zn²⁺]</li>
+            <li>Fe³⁺ + e⁻ ⇌ Fe²⁺：E = E° − (0.0592/1) × log([Fe²⁺]/[Fe³⁺])</li>
+            <li>2H⁺ + 2e⁻ ⇌ H₂：E = E° − (0.0592/2) × log(P_H2/[H⁺]²)</li>
+          </ol>
+          <img class="slide-img" src="images/electrochem/page13.png" alt="Nernst 範例" onclick="openLightbox(this)">
+
+          <h3>Example 22-2 — Cd²⁺ 非標準濃度</h3>
+          <p>[Cd²⁺] = 0.0150 M，求電極電位</p>
+          <p>E = −0.403 − (0.0592/2) × log(1/0.0150) = <strong>−0.457 V</strong></p>
+          <p>濃度越低，電位越負（越不利於還原）</p>
+          <img class="slide-img" src="images/electrochem/page14.png" alt="Example 22-2" onclick="openLightbox(this)">
+
+          <h3>Example A — Ag/AgCl 電極電位</h3>
+          <p>Ksp(AgCl) = 1.82×10⁻¹⁰，[Cl⁻] = 1 M</p>
+          <p>[Ag⁺] = Ksp/[Cl⁻] = 1.82×10⁻¹⁰ M</p>
+          <p>E = 0.799 + 0.0592 × log(1.82×10⁻¹⁰) = <strong>0.222 V</strong></p>
+          <img class="slide-img" src="images/electrochem/page15.png" alt="Ag/AgCl 計算" onclick="openLightbox(this)">
+          <img class="slide-img" src="images/electrochem/page16.png" alt="Example A 詳解" onclick="openLightbox(this)">
+        </div>
+
+        <!-- 參考電極 -->
+        <div class="collapsible-header" onclick="toggleCollapsible(this)">
+          四、參考電極與三電極系統 <span class="arrow">▶</span>
+        </div>
+        <div class="collapsible-body">
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>參考電極</th><th>E° (V)</th><th>優點</th><th>缺點</th></tr></thead>
+              <tbody>
+                <tr><td>SHE</td><td>0.000</td><td>計算方便</td><td>體積大、危險</td></tr>
+                <tr><td>SCE（飽和甘汞）</td><td>+0.244</td><td>穩定、方便</td><td>內電阻大、汞毒性</td></tr>
+                <tr><td>Ag/AgCl</td><td>+0.197</td><td>穩定、小、低電阻</td><td>需補 Cl⁻</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <img class="slide-img" src="images/electrochem/page18.png" alt="SHE 參考電極" onclick="openLightbox(this)">
+          <img class="slide-img" src="images/electrochem/page19.png" alt="SCE" onclick="openLightbox(this)">
+          <img class="slide-img" src="images/electrochem/page20.png" alt="Ag/AgCl" onclick="openLightbox(this)">
+
+          <h3>三電極系統</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>電極</th><th>功能</th><th>類比</th></tr></thead>
+              <tbody>
+                <tr><td>工作電極</td><td>量測電流（發生待測反應）</td><td>運動員</td></tr>
+                <tr><td>輔助電極</td><td>導通迴路</td><td>跑道</td></tr>
+                <tr><td>參考電極</td><td>校正電位（穩定基準）</td><td>裁判</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p><strong>口訣：工作跑、輔助導、參考定</strong></p>
+          <img class="slide-img" src="images/electrochem/page21.png" alt="工作電極" onclick="openLightbox(this)">
+          <img class="slide-img" src="images/electrochem/page22.png" alt="三電極系統" onclick="openLightbox(this)">
+        </div>
+
+        <!-- 伏安法 -->
+        <div class="collapsible-header" onclick="toggleCollapsible(this)">
+          五、伏安法家族 <span class="arrow">▶</span>
+        </div>
+        <div class="collapsible-body">
+          <div class="definition">
+            <div class="def-term">伏安法 (Voltammetry)</div>
+            <p>施加時變電位（E = f(t)），同時量測電流的方法</p>
+            <div class="def-en">A method applying time-varying potential and measuring current simultaneously.</div>
+          </div>
+          <img class="slide-img" src="images/electrochem/page23.png" alt="伏安定義" onclick="openLightbox(this)">
+
+          <h3>LSV 線性掃描伏安法</h3>
+          <ul>
+            <li>電位線性掃描，同時量測電流</li>
+            <li><strong>峰電流 i_p → 定量</strong>（濃度越高，峰越高）</li>
+            <li><strong>峰電位 E_p → 定性</strong>（不同物質在不同電位出峰）</li>
+          </ul>
+          <img class="slide-img" src="images/electrochem/page24.png" alt="LSV" onclick="openLightbox(this)">
+          <img class="slide-img" src="images/electrochem/page25.png" alt="LSV 紅酒分析" onclick="openLightbox(this)">
+
+          <h3>CV 循環伏安法</h3>
+          <ul>
+            <li>三角波掃描：先氧化方向，再還原方向</li>
+            <li>可同時看到氧化峰和還原峰</li>
+            <li><strong>可逆</strong>：對稱雙峰，ΔE_p ≈ 59/n mV</li>
+            <li><strong>準可逆</strong>：峰分離變大</li>
+            <li><strong>不可逆</strong>：只有一個方向的峰</li>
+          </ul>
+          <p><strong>口訣：可逆 = 對稱雙峰、E° 取中間</strong></p>
+          <img class="slide-img" src="images/electrochem/page26.png" alt="CV" onclick="openLightbox(this)">
+          <img class="slide-img" src="images/electrochem/page27.png" alt="CV 特點" onclick="openLightbox(this)">
+          <img class="slide-img" src="images/electrochem/page28.png" alt="CV 可逆性判斷" onclick="openLightbox(this)">
+
+          <h3>Randles-Ševčík 方程式</h3>
+          <div class="formula-card">i_p = (2.69×10⁵) × n^(3/2) × A × C × D^(1/2) × v^(1/2)</div>
+          <div class="formula-desc">
+            <span>n：轉移電子數</span>
+            <span>A：電極面積 (cm²)</span>
+            <span>C：濃度 (mol/cm³)</span>
+            <span>D：擴散係數</span>
+            <span>v：掃描速率 (V/s)</span>
+          </div>
+          <p><strong>i_p ∝ C（定量基礎）、i_p ∝ v^(1/2)（掃越快峰越高）</strong></p>
+          <img class="slide-img" src="images/electrochem/page29.png" alt="Randles-Ševčík" onclick="openLightbox(this)">
+          <img class="slide-img" src="images/electrochem/page30.png" alt="CV 應用" onclick="openLightbox(this)">
+
+          <h3>DPV 與 SWV</h3>
+          <ul>
+            <li><strong>DPV（微分脈衝伏安法）</strong>：疊加脈衝，取電流差消除充電電流</li>
+            <li><strong>SWV（方波伏安法）</strong>：方波波形，比 CV 訊雜比更高、更快</li>
+          </ul>
+          <img class="slide-img" src="images/electrochem/page31.png" alt="DPV & SWV" onclick="openLightbox(this)">
+          <img class="slide-img" src="images/electrochem/page32.png" alt="DPV & SWV 應用" onclick="openLightbox(this)">
+        </div>
+
+        <!-- 定電位安培法 -->
+        <div class="collapsible-header" onclick="toggleCollapsible(this)">
+          六、定電位安培法 <span class="arrow">▶</span>
+        </div>
+        <div class="collapsible-body">
+          <ul>
+            <li>固定電位，量測電流隨時間變化（i-t curve）</li>
+            <li>電流一開始大，隨時間遞減，最終趨近穩定值</li>
+            <li>選擇性高：選對電位只量測目標反應</li>
+          </ul>
+          <p><strong>口訣：定電位 = 選對頻道聽特定電台</strong></p>
+          <img class="slide-img" src="images/electrochem/page33.png" alt="定電位安培法" onclick="openLightbox(this)">
+
+          <h3>電位選擇 — 多成分分析</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>施加電位</th><th>可偵測的物質</th></tr></thead>
+              <tbody>
+                <tr><td>−0.1 V</td><td>Cu</td></tr>
+                <tr><td>−0.5 V</td><td>Cu + Pb</td></tr>
+                <tr><td>−0.6 V</td><td>Cu + Pb + Cd</td></tr>
+                <tr><td>−0.8 V</td><td>Cu + Pb + Cd + Ga</td></tr>
+                <tr><td>−1.0 V</td><td>全部 + Zn</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p><strong>電位越負，偵測越多；低電位干擾高電位</strong></p>
+          <img class="slide-img" src="images/electrochem/page34.png" alt="電位選擇" onclick="openLightbox(this)">
+          <img class="slide-img" src="images/electrochem/page35.png" alt="抗壞血酸分析" onclick="openLightbox(this)">
+        </div>
+
+        <!-- 重點摘要 -->
+        <div class="collapsible-header" onclick="toggleCollapsible(this)">
+          七、Ch22-25 重點摘要 <span class="arrow">▶</span>
+        </div>
+        <div class="collapsible-body">
+          <img class="slide-img" src="images/electrochem/page36.png" alt="Ch22-25 摘要" onclick="openLightbox(this)">
+          <img class="slide-img" src="images/electrochem/page38.png" alt="定義複習" onclick="openLightbox(this)">
+          <img class="slide-img" src="images/electrochem/page39.png" alt="公式複習" onclick="openLightbox(this)">
+          <img class="slide-img" src="images/electrochem/page40.png" alt="公式複習二" onclick="openLightbox(this)">
+
+          <div class="card">
+            <div class="card-title">📌 期末必背清單</div>
+            <ol>
+              <li>Plus Right Rule：E_cell = E_right − E_left</li>
+              <li>Nernst 方程式（完整版 + 25°C 簡化版）</li>
+              <li>SHE = 0.000 V, SCE = 0.244 V, Ag/AgCl = 0.197 V</li>
+              <li>三電極各角色</li>
+              <li>Randles-Ševčík 方程式</li>
+              <li>可逆性判斷（ΔE_p ≈ 59/n mV）</li>
+            </ol>
+          </div>
+          <div class="card">
+            <div class="card-title">📌 記憶口訣總複習</div>
+            <ol>
+              <li>LEO says GER：失電子=氧化，得電子=還原</li>
+              <li>Cat 還 An 氧：Cathode = 還原，Anode = 氧化</li>
+              <li>左氧右還：電池表示法左邊氧化右邊還原</li>
+              <li>Plus Right Rule：正極接右邊</li>
+              <li>正=自發、負=非自發</li>
+              <li>SHE 是海平面 = 0.000 V</li>
+              <li>莫耳數不影響 E°</li>
+              <li>峰電流定量、峰電位定性</li>
+              <li>可逆 = 對稱雙峰、E° 取中間</li>
+              <li>電位越負偵測越多</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========== 比較表 ========== -->
+      <div class="section" id="sec-comparison">
+        <h1>📊 儀器方法總比較表</h1>
+
+        <h2>離子源比較</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>離子源</th><th>硬/軟</th><th>分子離子峰</th><th>碎片</th><th>適用分子量</th><th>一句話</th></tr></thead>
+            <tbody>
+              <tr><td>EI</td><td>硬</td><td>弱</td><td>多</td><td>小-中</td><td>70eV 電子束砸，碎片多結構清</td></tr>
+              <tr><td>CI</td><td>軟</td><td>強</td><td>少</td><td>小-中</td><td>試劑氣體先游離再轉移</td></tr>
+              <tr><td>FAB</td><td>軟</td><td>強</td><td>少</td><td>中</td><td>快原子撞基質脫附</td></tr>
+              <tr><td>MALDI</td><td>軟</td><td>強</td><td>少</td><td>大</td><td>基質吸雷射，田中耕一</td></tr>
+              <tr><td>ESI</td><td>軟</td><td>強</td><td>少</td><td>大</td><td>庫侖爆炸多電荷，Fenn</td></tr>
+              <tr><td>DESI</td><td>軟</td><td>強</td><td>少</td><td>大</td><td>電灑撞固體，不需前處理</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>質量分析器比較</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>類型</th><th>原理</th><th>優點</th><th>缺點</th><th>特色</th></tr></thead>
+            <tbody>
+              <tr><td>磁扇區</td><td>磁場偏轉</td><td>高解析、質量範圍大</td><td>貴、大、慢</td><td>m/z=B²r²e/2V</td></tr>
+              <tr><td>四極柱</td><td>DC+RF 過濾</td><td>小、便宜、快</td><td>質量範圍小、解析一般</td><td>質量濾波器</td></tr>
+              <tr><td>離子阱</td><td>射頻囚禁</td><td>小、便宜、可 MSⁿ</td><td>質量範圍小、離子抑制</td><td>MSⁿ</td></tr>
+              <tr><td>TOF</td><td>飛行時間</td><td>高解析、大範圍、快</td><td>大、不易串聯</td><td>輕快重慢</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>參考電極比較</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>電極</th><th>E° (V)</th><th>優點</th><th>缺點</th></tr></thead>
+            <tbody>
+              <tr><td>SHE</td><td>0.000</td><td>標準基準</td><td>體積大、危險</td></tr>
+              <tr><td>SCE</td><td>+0.244</td><td>穩定、方便</td><td>內電阻大、汞毒性</td></tr>
+              <tr><td>Ag/AgCl</td><td>+0.197</td><td>穩定、小、低電阻</td><td>需補 Cl⁻</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>伏安法比較</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>方法</th><th>全名</th><th>特點</th></tr></thead>
+            <tbody>
+              <tr><td>LSV</td><td>線性掃描伏安法</td><td>E 定性、i 定量</td></tr>
+              <tr><td>CV</td><td>循環伏安法</td><td>三角波，可逆對稱，E°=(E_O+E_R)/2</td></tr>
+              <tr><td>DPV</td><td>微分脈衝伏安法</td><td>比 CV 訊雜比高</td></tr>
+              <tr><td>SWV</td><td>方波伏安法</td><td>比 CV 訊雜比更高、更快</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>特徵碎片 m/z 速查</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>類型</th><th>m/z</th><th>備註</th></tr></thead>
+            <tbody>
+              <tr><td>醛</td><td>29</td><td>必為基峰</td></tr>
+              <tr><td>甲基酮</td><td>43</td><td>CH₃CO⁺</td></tr>
+              <tr><td>醇</td><td>31</td><td>CH₂OH⁺</td></tr>
+              <tr><td>芳香族</td><td>91</td><td>草鎖離子 C₇H₇⁺</td></tr>
+              <tr><td>Cl</td><td>M+2 ≈ M/3</td><td>3:1</td></tr>
+              <tr><td>Br</td><td>M+2 ≈ M</td><td>1:1</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ========== 定義速查 ========== -->
+      <div class="section" id="sec-definitions">
+        <h1>📖 定義速查</h1>
+
+        <h2>Ch20 質譜法</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>英文</th><th>中文</th><th>定義</th></tr></thead>
+            <tbody>
+              <tr><td>Mass Spectrometry</td><td>質譜法</td><td>根據荷質比分析離子的技術</td></tr>
+              <tr><td>Ion Source</td><td>離子源</td><td>產生原子/分子離子的裝置</td></tr>
+              <tr><td>Hard Ionization</td><td>硬離子化</td><td>高能游離，碎片多，分子離子峰弱</td></tr>
+              <tr><td>Soft Ionization</td><td>軟離子化</td><td>低能游離，碎片少，分子離子峰強</td></tr>
+              <tr><td>Base Peak</td><td>基峰</td><td>質譜中最高訊號峰，訂為 100%</td></tr>
+              <tr><td>Isotope</td><td>同位素</td><td>同元素，質子數同中子數不同</td></tr>
+              <tr><td>Adduct</td><td>加成物</td><td>不同分子互相加成的產物</td></tr>
+              <tr><td>Isomer</td><td>同分異構物</td><td>分子式同結構不同</td></tr>
+              <tr><td>CID</td><td>碰撞誘導解離</td><td>氣相中誘導選定離子碎裂的技術</td></tr>
+              <tr><td>Resolution</td><td>解析度</td><td>分辨相近質量離子的能力 R=m̄/Δm</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Ch22-25 電分析化學</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>英文</th><th>中文</th><th>定義</th></tr></thead>
+            <tbody>
+              <tr><td>Oxidation</td><td>氧化</td><td>失去電子，氧化數增加</td></tr>
+              <tr><td>Reduction</td><td>還原</td><td>得到電子，氧化數減少</td></tr>
+              <tr><td>Cathode</td><td>陰極</td><td>還原反應發生的電極</td></tr>
+              <tr><td>Anode</td><td>陽極</td><td>氧化反應發生的電極</td></tr>
+              <tr><td>Standard State</td><td>標準狀態</td><td>1M, 1atm, 100% 純度的參考條件</td></tr>
+              <tr><td>Standard Electrode Potential</td><td>標準電極電位</td><td>相對 SHE 的還原電位</td></tr>
+              <tr><td>Nernst Equation</td><td>能斯特方程式</td><td>非標準狀態下的電極電位計算</td></tr>
+              <tr><td>Voltammetry</td><td>伏安法</td><td>通以時變電位量測電流的方法</td></tr>
+              <tr><td>Amperometry</td><td>安培法</td><td>固定電位量測電流的方法</td></tr>
+              <tr><td>Working Electrode</td><td>工作電極</td><td>施加電位差並量測電流</td></tr>
+              <tr><td>Counter Electrode</td><td>輔助電極</td><td>導通迴路，平衡電荷</td></tr>
+              <tr><td>Reference Electrode</td><td>參考電極</td><td>校正工作電極電位</td></tr>
+              <tr><td>SHE</td><td>標準氫電極</td><td>E°=0.000V 的參考基準</td></tr>
+              <tr><td>SCE</td><td>飽和甘汞電極</td><td>E°=+0.244V，穩定但有毒</td></tr>
+              <tr><td>Ag/AgCl</td><td>銀-氯化銀電極</td><td>E°=+0.197V，小型穩定</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ========== 公式速查 ========== -->
+      <div class="section" id="sec-formulas">
+        <h1>🔢 公式速查</h1>
+
+        <h2>Ch20 質譜法</h2>
+
+        <h3>離子加速動能</h3>
+        <div class="formula-card">KE = zeV</div>
+        <div class="formula-desc">
+          <span>z = 電荷數</span>
+          <span>e = 1.6×10⁻¹⁹ C</span>
+          <span>V = 加速電壓</span>
+        </div>
+
+        <h3>磁扇區質譜儀</h3>
+        <div class="formula-card">m/z = B²r²e / 2V</div>
+        <div class="formula-desc">
+          <span>B = 磁場強度 (T)</span>
+          <span>r = 曲率半徑 (m)</span>
+          <span>e = 1.6×10⁻¹⁹ C</span>
+          <span>V = 加速電壓 (V)</span>
+        </div>
+
+        <h3>磁扇區加速電壓</h3>
+        <div class="formula-card">V = B²r²ze / 2m</div>
+        <div class="formula-desc">
+          <span>m 用 kg（amu / 6.02×10²³）</span>
+          <span>r 用 m（cm / 100）</span>
+        </div>
+
+        <h3>解析度</h3>
+        <div class="formula-card">R = m̄ / Δm</div>
+        <div class="formula-desc">
+          <span>m̄ = 兩峰質量平均值</span>
+          <span>Δm = 兩峰質量差</span>
+        </div>
+
+        <h3>同位素比例</h3>
+        <div class="formula-card">Cl: ³⁵Cl:³⁷Cl = 3:1 → M:M+2 ≈ 3:1</div>
+        <div class="formula-card">Br: ⁷⁹Br:⁸¹Br ≈ 1:1 → M:M+2 ≈ 1:1</div>
+        <div class="formula-card">雙 Cl: M:M+2:M+4 = 9:6:1</div>
+
+        <h2>Ch22-25 電分析化學</h2>
+
+        <h3>電池電位</h3>
+        <div class="formula-card">E_cell = E_right − E_left</div>
+
+        <h3>Nernst 方程式 (25°C)</h3>
+        <div class="formula-card">E = E° − (0.0592/n) × log([C]^c[D]^d / [A]^a[B]^b)</div>
+        <div class="formula-desc">
+          <span>E° = 標準電極電位</span>
+          <span>n = 轉移電子數</span>
+          <span>固體和純液體濃度 = 1</span>
+          <span>0.0592 只在 25°C 適用</span>
+        </div>
+
+        <h3>Ksp 結合 Nernst</h3>
+        <div class="formula-card">E = E° + (0.0592/n) × log(Ksp / [Cl⁻])</div>
+        <p>（以 Ag/AgCl 為例）</p>
+
+        <h3>CV 可逆反應</h3>
+        <div class="formula-card">E° = (E_氧化峰 + E_還原峰) / 2</div>
+        <div class="formula-card">ΔE_p ≈ 59/n mV (25°C)</div>
+
+        <h3>Randles-Ševčík</h3>
+        <div class="formula-card">i_p = (2.69×10⁵) × n^(3/2) × A × C × D^(1/2) × v^(1/2)</div>
+        <div class="formula-desc">
+          <span>n = 轉移電子數</span>
+          <span>A = 電極面積 (cm²)</span>
+          <span>C = 濃度 (mol/cm³)</span>
+          <span>D = 擴散係數 (cm²/s)</span>
+          <span>v = 掃描速率 (V/s)</span>
+        </div>
+
+        <h3>參考電極電位</h3>
+        <div class="formula-card">SHE: E° = 0.000 V | SCE: E° = +0.244 V | Ag/AgCl: E° = +0.197 V</div>
+      </div>
+
+      <!-- ========== 考題預測 ========== -->
+      <div class="section" id="sec-prediction">
+        <h1>🎯 考題預測與解題策略</h1>
+
+        <h2>Ch20 質譜法</h2>
+        <h3>🔴 必考題型</h3>
+
+        <div class="card">
+          <div class="card-title">1. 離子源選擇</div>
+          <p>給分析需求選最適合的離子源：</p>
+          <ul>
+            <li>大分子蛋白質 → ESI 或 MALDI</li>
+            <li>需要結構資訊 → EI</li>
+            <li>只需分子量 → CI、ESI、MALDI</li>
+            <li>GC-MS → EI 或 CI</li>
+            <li>LC-MS → ESI</li>
+            <li>不需前處理 → DESI</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-title">2. 磁扇區計算</div>
+          <p>給 B, r, V, m/z 中的三個求第四個</p>
+          <p>公式：m/z = B²r²e / 2V</p>
+          <p>⚠️ 注意單位：r 要換算成 m，m 要換算成 kg</p>
+        </div>
+
+        <div class="card">
+          <div class="card-title">3. 解析度計算</div>
+          <p>給兩個離子的精確質量，求 R = m̄ / Δm</p>
+          <p>⚠️ m̄ 是平均值，不是任一個！</p>
+        </div>
+
+        <div class="card">
+          <div class="card-title">4. 同位素判斷</div>
+          <ul>
+            <li>M+2 ≈ M/3 → 一個 Cl</li>
+            <li>M+2 ≈ M → 一個 Br</li>
+            <li>M:M+2:M+4 = 9:6:1 → 兩個 Cl</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-title">5. 特徵碎片辨識</div>
+          <ul>
+            <li>m/z=29 基峰 → 醛</li>
+            <li>m/z=43 基峰 → 甲基酮</li>
+            <li>m/z=31 → 醇</li>
+            <li>m/z=91 → 芳香族（草鎖離子）</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-title">6. 串聯質譜掃描模式</div>
+          <ul>
+            <li>想知道某分子的碎片 → Product Ion Scan</li>
+            <li>想知道哪些分子會產生某碎片 → Precursor Ion Scan</li>
+            <li>想找失去特定質量的分子對 → Neutral Loss Scan</li>
+            <li>想定量特定反應 → SRM/MRM</li>
+          </ul>
+        </div>
+
+        <h3>⚠️ 易錯點</h3>
+        <div class="card priority-yellow">
+          <ul>
+            <li>E° 是<strong>還原電位</strong>，不是氧化電位</li>
+            <li>解析度公式用<strong>平均值</strong> m̄，不是 m₁ 或 m₂</li>
+            <li>磁扇區公式中 r 要用<strong>公尺</strong>，m 要用<strong>公斤</strong></li>
+            <li>同位素比例：(3+1)ⁿ 是 Cl 的，(1+1)ⁿ 是 Br 的</li>
+          </ul>
+        </div>
+
+        <h2>Ch22-25 電分析化學</h2>
+        <h3>🔴 必考題型</h3>
+
+        <div class="card">
+          <div class="card-title">1. E° 正負判斷</div>
+          <p>正電位 = 自發（還原反應），負電位 = 非自發</p>
+        </div>
+
+        <div class="card">
+          <div class="card-title">2. Nernst 計算</div>
+          <p>給非標準濃度求 E</p>
+          <ul>
+            <li>注意 n 值（轉移電子數）</li>
+            <li>注意 log 裡的分母分子</li>
+            <li>0.0592 只在 25°C 適用</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-title">3. Ksp + Nernst 結合</div>
+          <p>關鍵：[Ag⁺] = Ksp / [Cl⁻]</p>
+        </div>
+
+        <div class="card">
+          <div class="card-title">4. Cell Potential 計算</div>
+          <p>E_cell = E_right − E_left</p>
+        </div>
+
+        <div class="card">
+          <div class="card-title">5. CV 圖判讀</div>
+          <ul>
+            <li>可逆：對稱，ΔE_p ≈ 59/n mV</li>
+            <li>準可逆：峰分離變大</li>
+            <li>不可逆：只有一個方向的峰</li>
+          </ul>
+        </div>
+
+        <h3>⚠️ 易錯點</h3>
+        <div class="card priority-yellow">
+          <ul>
+            <li>Plus Right Rule：電錶正極接右邊，E_cell = E_right − E_left</li>
+            <li>E° 與反應莫耳數無關！</li>
+            <li>Nernst 的 0.0592 只在 25°C 適用</li>
+            <li>固體和純液體濃度 = 1（不寫在 Q 裡）</li>
+            <li>SCE 用汞，有環境毒性問題</li>
+            <li>電位選擇：高電位會受低電位干擾</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ========== 模擬測驗 ========== -->
+      <div class="section" id="sec-quiz">
+        <h1>✍️ 模擬測驗</h1>
+        <div class="quiz-container" id="quizContainer"></div>
+      </div>
+
+    </div>
+  </div>
+  <script src="app.js"></script>
+  <script src="quiz.js"></script>
+</body>
+</html>
