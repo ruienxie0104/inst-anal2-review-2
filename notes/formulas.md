@@ -2,6 +2,8 @@
 
 ## Ch20 質譜法
 
+![離子加速動能](images/ms/page12.png) ![磁扇區公式](images/ms/page28.png) ![解析度](images/ms/page55.png)
+
 ### 離子加速動能
 KE = zeV
 - z = 電荷數
@@ -9,6 +11,8 @@ KE = zeV
 - V = 加速電壓
 
 ### 磁扇區質譜儀
+![磁扇區推導](images/ms/page27.png)
+
 m/z = B²r²e / 2V
 - B = 磁場強度 (T)
 - r = 曲率半徑 (m)
@@ -34,15 +38,21 @@ R = m̄ / Δm
 
 ## Ch22-25 電分析化學
 
+![電池電位](images/electrochem/page05.png) ![Nernst](images/electrochem/page12.png) ![Randles-Ševčík](images/electrochem/page29.png)
+
 ### 電池電位
 E_cell = E_right − E_left
 
 ### Nernst Equation (25°C)
 E = E° − (0.0592/n) × log([C]^c[D]^d / [A]^a[B]^b)
 
+![三個Nernst範例](images/electrochem/page13.png)
+
 ### Ksp 結合 Nernst
 E = E° + (0.0592/n) × log(Ksp/[Cl⁻])
 （以 Ag/AgCl 為例）
+
+![Example A](images/electrochem/page16.png)
 
 ### CV 可逆反應
 E° = (E_氧化峰 + E_還原峰) / 2

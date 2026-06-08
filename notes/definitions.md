@@ -2,6 +2,8 @@
 
 ## Ch20 質譜法
 
+![質譜定義](images/ms/page08.png) ![離子源定義](images/ms/page09.png) ![同位素](images/ms/page51.png) ![加成物與基峰](images/ms/page41.png) ![同分異構物](images/ms/page57.png) ![CID](images/ms/page58.png)
+
 | 英文 | 中文 | 定義 |
 |------|------|------|
 | Mass Spectrometry | 質譜法 | 根據荷質比分析離子的技術 |
@@ -18,6 +20,8 @@
 | Resolution | 解析度 | 分辨相近質量離子的能力 R=m̄/Δm |
 
 ## Ch22-25 電分析化學
+
+![氧化還原](images/electrochem/page03.png) ![電化學電池](images/electrochem/page04.png) ![Plus Right Rule](images/electrochem/page05.png) ![SHE](images/electrochem/page08.png) ![Nernst](images/electrochem/page12.png) ![伏安定義](images/electrochem/page23.png)
 
 | 英文 | 中文 | 定義 |
 |------|------|------|
