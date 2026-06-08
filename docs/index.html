@@ -77,8 +77,8 @@
         <div class="card priority-red">
           <ol>
             <li>硬離子源 vs 軟離子源比較（碎片、分子離子峰）</li>
-            <li>磁扇區公式計算（m/z = B²r²e/2V）</li>
-            <li>解析度計算（R = m̄/Δm）</li>
+            <li>磁扇區公式計算（$$m/z = B^2r^2e/2V$$）</li>
+            <li>解析度計算（$$R = \bar{m}/\Delta m$$）</li>
             <li>Nernst 方程式計算（25°C 簡化版）</li>
             <li>E_cell = E_right − E_left</li>
             <li>同位素判斷（Cl 3:1、Br 1:1）</li>
@@ -91,7 +91,7 @@
           <ol start="8">
             <li>特徵碎片判斷化合物（醛29、酮43、醇31、芳香族91）</li>
             <li>四極柱篩選原理（m/z 太小/太大/剛好）</li>
-            <li>CV 可逆性判斷（ΔE_p ≈ 59/n mV）</li>
+            <li>CV 可逆性判斷（$$\Delta E_p \approx 59/n$$ mV）</li>
             <li>三電極系統各角色</li>
             <li>參考電極比較（SHE/SCE/Ag-AgCl）</li>
           </ol>
@@ -191,7 +191,7 @@
           </ul>
           <img class="slide-img" src="images/ms/page13.png" alt="CI 化學游離" onclick="openLightbox(this)">
           <img class="slide-img" src="images/ms/page14.png" alt="CI 反應式" onclick="openLightbox(this)">
-          <p>質子親和力：NH₃(207) > i-C₄H₁₀(195) > H₂O(164) > C₂H₆(159) > CH₄(127) > H₂(101)</p>
+          <p>質子親和力：$$\text{NH}_3(207) > i\text{-C}_4\text{H}_{10}(195) > \text{H}_2\text{O}(164) > \text{C}_2\text{H}_6(159) > \text{CH}_4(127) > \text{H}_2(101)$$</p>
           <img class="slide-img" src="images/ms/page15.png" alt="質子親和力" onclick="openLightbox(this)">
           <img class="slide-img" src="images/ms/page22.png" alt="EI vs CI 比較" onclick="openLightbox(this)">
 
@@ -280,7 +280,7 @@
           <h3>4. TOF 飛行時間 (Time of Flight)</h3>
           <ul>
             <li>輕的離子飛得快，重的飛得慢，測到達時間反推 m/z</li>
-            <li><strong>t ∝ √(m/z)</strong></li>
+            <li><strong>$$t \propto \sqrt{m/z}$$</strong></li>
             <li>優點：高解析、質量範圍極大（理論無上限）、掃描極快</li>
             <li>缺點：體積大時不易串聯 MS/MS</li>
           </ul>
@@ -290,7 +290,7 @@
             <table>
               <thead><tr><th>分析器</th><th>原理</th><th>優點</th><th>缺點</th><th>特色</th></tr></thead>
               <tbody>
-                <tr><td>磁扇區</td><td>磁場偏轉</td><td>高解析、質量範圍大</td><td>貴、大、慢</td><td>m/z = B²r²e/2V</td></tr>
+                <tr><td>磁扇區</td><td>磁場偏轉</td><td>高解析、質量範圍大</td><td>貴、大、慢</td><td>$$m/z = B^2r^2e/2V$$</td></tr>
                 <tr><td>四極柱</td><td>DC+RF 過濾</td><td>小、便宜、快</td><td>質量範圍小、解析一般</td><td>質量濾波器</td></tr>
                 <tr><td>離子阱</td><td>射頻囚禁</td><td>小、便宜、可 MSⁿ</td><td>質量範圍小、離子抑制</td><td>MSⁿ</td></tr>
                 <tr><td>TOF</td><td>飛行時間</td><td>高解析、大範圍、極快</td><td>大、不易串聯</td><td>輕快重慢</td></tr>
@@ -432,7 +432,7 @@
           <img class="slide-img" src="images/ms/page57.png" alt="MS/MS 為什麼需要" onclick="openLightbox(this)">
 
           <h3>CID 碰撞誘導解離</h3>
-          <p>三重四極柱：<strong>Q1（選）→ Q2（撞）→ Q3（析）</strong></p>
+          <p>三重四極柱：$$\text{Q}_1$$（選）→ $$\text{Q}_2$$（撞）→ $$\text{Q}_3$$（析）</p>
           <img class="slide-img" src="images/ms/page58.png" alt="CID" onclick="openLightbox(this)">
 
           <h3>MSⁿ</h3>
@@ -541,12 +541,12 @@
           <img class="slide-img" src="images/electrochem/page04.png" alt="電化學電池" onclick="openLightbox(this)">
 
           <h3>Plus Right Rule</h3>
-          <p><strong>E_cell = E_right − E_left</strong></p>
+          <p><strong>$$E_{\text{cell}} = E_{\text{right}} - E_{\text{left}}$$</strong></p>
           <p>正極永遠接右邊的半電池</p>
           <img class="slide-img" src="images/electrochem/page05.png" alt="Plus Right Rule" onclick="openLightbox(this)">
 
           <h3>電池表示法</h3>
-          <p>Cu | Cu²⁺(0.02M) || Ag⁺(0.02M) | Ag</p>
+          <p>$$\text{Cu} \, | \, \text{Cu}^{2+}(0.02\text{M}) \, || \, \text{Ag}^+(0.02\text{M}) \, | \, \text{Ag}$$</p>
           <p><strong>左氧右還</strong>：左邊是陽極（氧化），右邊是陰極（還原）</p>
           <img class="slide-img" src="images/electrochem/page06.png" alt="電池表示法" onclick="openLightbox(this)">
         </div>
@@ -598,9 +598,9 @@
 
           <h3>三個 Nernst 範例</h3>
           <ol>
-            <li>Zn²⁺ + 2e⁻ ⇌ Zn：E = E° + (0.0592/2) × log[Zn²⁺]</li>
-            <li>Fe³⁺ + e⁻ ⇌ Fe²⁺：E = E° − (0.0592/1) × log([Fe²⁺]/[Fe³⁺])</li>
-            <li>2H⁺ + 2e⁻ ⇌ H₂：E = E° − (0.0592/2) × log(P_H2/[H⁺]²)</li>
+            <li>$$\text{Zn}^{2+} + 2e^- \rightleftharpoons \text{Zn}$$：$$E = E° + \frac{0.0592}{2}\log[\text{Zn}^{2+}]$$</li>
+            <li>$$\text{Fe}^{3+} + e^- \rightleftharpoons \text{Fe}^{2+}$$：$$E = E° - 0.0592\log\frac{[\text{Fe}^{2+}]}{[\text{Fe}^{3+}]}$$</li>
+            <li>$$2\text{H}^+ + 2e^- \rightleftharpoons \text{H}_2$$：$$E = E° - \frac{0.0592}{2}\log\frac{P_{\text{H}_2}}{[\text{H}^+]^2}$$</li>
           </ol>
           <img class="slide-img" src="images/electrochem/page13.png" alt="Nernst 範例" onclick="openLightbox(this)">
 
@@ -678,7 +678,7 @@
           <ul>
             <li>三角波掃描：先氧化方向，再還原方向</li>
             <li>可同時看到氧化峰和還原峰</li>
-            <li><strong>可逆</strong>：對稱雙峰，ΔE_p ≈ 59/n mV</li>
+            <li><strong>可逆</strong>：對稱雙峰，$$\Delta E_p \approx \frac{59}{n}\text{ mV}$$</li>
             <li><strong>準可逆</strong>：峰分離變大</li>
             <li><strong>不可逆</strong>：只有一個方向的峰</li>
           </ul>
@@ -758,7 +758,7 @@
               <li>SHE = 0.000 V, SCE = 0.244 V, Ag/AgCl = 0.197 V</li>
               <li>三電極各角色</li>
               <li>Randles-Ševčík 方程式</li>
-              <li>可逆性判斷（ΔE_p ≈ 59/n mV）</li>
+              <li>可逆性判斷（$$\Delta E_p \approx \frac{59}{n}\text{ mV}$$）</li>
             </ol>
           </div>
           <div class="card">
@@ -803,7 +803,7 @@
           <table>
             <thead><tr><th>類型</th><th>原理</th><th>優點</th><th>缺點</th><th>特色</th></tr></thead>
             <tbody>
-              <tr><td>磁扇區</td><td>磁場偏轉</td><td>高解析、質量範圍大</td><td>貴、大、慢</td><td>m/z=B²r²e/2V</td></tr>
+              <tr><td>磁扇區</td><td>磁場偏轉</td><td>高解析、質量範圍大</td><td>貴、大、慢</td><td>$$m/z = B^2r^2e/2V$$</td></tr>
               <tr><td>四極柱</td><td>DC+RF 過濾</td><td>小、便宜、快</td><td>質量範圍小、解析一般</td><td>質量濾波器</td></tr>
               <tr><td>離子阱</td><td>射頻囚禁</td><td>小、便宜、可 MSⁿ</td><td>質量範圍小、離子抑制</td><td>MSⁿ</td></tr>
               <tr><td>TOF</td><td>飛行時間</td><td>高解析、大範圍、快</td><td>大、不易串聯</td><td>輕快重慢</td></tr>
@@ -870,7 +870,7 @@
               <tr><td>Adduct</td><td>加成物</td><td>不同分子互相加成的產物</td></tr>
               <tr><td>Isomer</td><td>同分異構物</td><td>分子式同結構不同</td></tr>
               <tr><td>CID</td><td>碰撞誘導解離</td><td>氣相中誘導選定離子碎裂的技術</td></tr>
-              <tr><td>Resolution</td><td>解析度</td><td>分辨相近質量離子的能力 R=m̄/Δm</td></tr>
+              <tr><td>Resolution</td><td>解析度</td><td>分辨相近質量離子的能力 $$R = \bar{m}/\Delta m$$</td></tr>
             </tbody>
           </table>
         </div>
@@ -907,7 +907,7 @@
         <h2>Ch20 質譜法</h2>
 
         <h3>離子加速動能</h3>
-        <div class="formula-card">$$$$KE = zeV$$$$</div>
+        <div class="formula-card">$$KE = zeV$$</div>
         <div class="formula-desc">
           <span>$$z$$ = 電荷數</span>
           <span>$$e = 1.6 \times 10^{-19}\text{ C}$$</span>
@@ -968,10 +968,10 @@
         <div class="formula-card">$$i_p = (2.69 \times 10^5) \cdot n^{3/2} \cdot A \cdot C \cdot D^{1/2} \cdot v^{1/2}$$</div>
         <div class="formula-desc">
           <span>$$n$$ = 轉移電子數</span>
-          <span>A = 電極面積 (cm²)</span>
-          <span>C = 濃度 (mol/cm³)</span>
-          <span>D = 擴散係數 (cm²/s)</span>
-          <span>v = 掃描速率 (V/s)</span>
+          <span>$$A$$ = 電極面積 (cm²)</span>
+          <span>$$C$$ = 濃度 (mol/cm³)</span>
+          <span>$$D$$ = 擴散係數 (cm²/s)</span>
+          <span>$$v$$ = 掃描速率 (V/s)</span>
         </div>
 
         <h3>參考電極電位</h3>
@@ -1044,9 +1044,9 @@
         <div class="card priority-yellow">
           <ul>
             <li>E° 是<strong>還原電位</strong>，不是氧化電位</li>
-            <li>解析度公式用<strong>平均值</strong> m̄，不是 m₁ 或 m₂</li>
-            <li>磁扇區公式中 r 要用<strong>公尺</strong>，m 要用<strong>公斤</strong></li>
-            <li>同位素比例：(3+1)ⁿ 是 Cl 的，(1+1)ⁿ 是 Br 的</li>
+            <li>解析度公式用<strong>平均值</strong> $$\bar{m}$$，不是 $$m_1$$ 或 $$m_2$$</li>
+            <li>磁扇區公式中 $$r$$ 要用<strong>公尺</strong>，$$m$$ 要用<strong>公斤</strong></li>
+            <li>同位素比例：$$(3+1)^n$$ 是 Cl 的，$$(1+1)^n$$ 是 Br 的</li>
           </ul>
         </div>
 
@@ -1081,7 +1081,7 @@
         <div class="card">
           <div class="card-title">5. CV 圖判讀</div>
           <ul>
-            <li>可逆：對稱，ΔE_p ≈ 59/n mV</li>
+            <li>可逆：對稱，$$\Delta E_p \approx \frac{59}{n}\text{ mV}$$</li>
             <li>準可逆：峰分離變大</li>
             <li>不可逆：只有一個方向的峰</li>
           </ul>
