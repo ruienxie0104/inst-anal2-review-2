@@ -666,3 +666,7 @@ tr:nth-child(even) { background: rgba(0,0,0,0.02); }
   .sidebar, .topbar, .sidebar-overlay { display: none !important; }
   .main { margin-left: 0; }
 }
+/* ===== KaTeX ===== */
+.formula-card .katex { color: var(--katex-color) !important; }
+.formula-card .katex-display { margin: 0.5em 0; }
+[data-theme="dark"] .formula-card .katex { color: #f0f0f0 !important; }

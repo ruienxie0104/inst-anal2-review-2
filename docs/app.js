@@ -1,4 +1,4 @@
-// app.js — Navigation, theme, image viewer, collapsible sections
+// app.js — Navigation, theme, KaTeX, image viewer, collapsible sections
 
 // ===== Collapsible Sections =====
 function toggleCollapsible(header) {
@@ -10,6 +10,19 @@ function toggleCollapsible(header) {
   } else {
     body.classList.add('open');
     header.classList.add('open');
+  }
+}
+
+// ===== KaTeX Rendering =====
+function renderMath() {
+  if (typeof renderMathInElement === 'function') {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ],
+      throwOnError: false
+    });
   }
 }
 
@@ -29,6 +42,16 @@ document.addEventListener('DOMContentLoaded', function() {
       const target = document.getElementById('sec-' + targetId);
       if (target) {
         target.classList.add('active');
+        // Re-render KaTeX in newly visible section
+        if (typeof renderMathInElement === 'function') {
+          renderMathInElement(target, {
+            delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false}
+            ],
+            throwOnError: false
+          });
+        }
       }
       // Close sidebar on mobile
       if (window.innerWidth <= 768) closeSidebar();
@@ -51,6 +74,9 @@ document.addEventListener('DOMContentLoaded', function() {
       document.body.appendChild(overlay);
     }
   });
+
+  // Initial KaTeX render
+  setTimeout(renderMath, 500);
 
   // Initialize quiz if navigating to quiz section
   const quizContainer = document.getElementById('quizContainer');

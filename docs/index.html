@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>儀器分析二 考試總複習 — 質譜 & 電分析化學</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 </head>
 <body>
   <!-- Top Bar (mobile) -->
@@ -98,7 +101,7 @@
         <div class="card priority-green">
           <ol start="13">
             <li>離子源選擇題（給需求選離子源）</li>
-            <li>動能計算（KE = zeV）</li>
+            <li>動能計算（$$KE = zeV$$）</li>
             <li>定電位安培法應用</li>
             <li>Randles-Ševčík 方程式</li>
           </ol>
@@ -238,7 +241,7 @@
           <h3>1. 磁扇區 (Magnetic Sector)</h3>
           <ul>
             <li>離子在磁場中偏轉，不同 m/z 偏轉半徑不同</li>
-            <li><strong>公式：m/z = B²r²e / 2V</strong></li>
+            <li><strong>公式：$$\frac{m}{z} = \frac{B^2 r^2 e}{2V}$$</strong></li>
             <li>優點：高解析度、質量範圍大</li>
             <li>缺點：昂貴、體積大、掃描慢</li>
           </ul>
@@ -408,13 +411,13 @@
         <div class="collapsible-body">
           <div class="definition">
             <div class="def-term">解析度 (Resolution)</div>
-            <p>R = m̄ / Δm，分辨相近質量離子的能力</p>
+            <p>$$R = \frac{\bar{m}}{\Delta m}$$，分辨相近質量離子的能力</p>
             <div class="def-en">The ability to distinguish between two ions of similar mass.</div>
           </div>
-          <div class="formula-card">R = m̄ / Δm</div>
+          <div class="formula-card">$$R = \frac{\bar{m}}{\Delta m}$$</div>
           <div class="formula-desc">
-            <span>m̄ = 兩峰質量平均值</span>
-            <span>Δm = 兩峰質量差</span>
+            <span>$$\bar{m}$$ = 兩峰質量平均值</span>
+            <span>$$\Delta m$$ = 兩峰質量差</span>
           </div>
           <img class="slide-img" src="images/ms/page55.png" alt="解析度" onclick="openLightbox(this)">
           <img class="slide-img" src="images/ms/page56.png" alt="Example 20-3" onclick="openLightbox(this)">
@@ -495,8 +498,8 @@
           <div class="card">
             <div class="card-title">📌 必背公式</div>
             <ul>
-              <li>KE = zeV</li>
-              <li>m/z = B²r²e / 2V</li>
+              <li>$$KE = zeV$$</li>
+              <li>$$\frac{m}{z} = \frac{B^2 r^2 e}{2V}$$</li>
               <li>R = m̄ / Δm</li>
             </ul>
           </div>
@@ -582,14 +585,14 @@
         </div>
         <div class="collapsible-body">
           <h3>完整版</h3>
-          <div class="formula-card">E = E° − (RT/nF) × ln(Q)</div>
+          <div class="formula-card">$$E = E° - \frac{RT}{nF} \ln Q$$</div>
           <h3>25°C 簡化版</h3>
-          <div class="formula-card">E = E° − (0.0592/n) × log(Q)</div>
+          <div class="formula-card">$$E = E° - \frac{0.0592}{n} \log Q$$</div>
           <div class="formula-desc">
-            <span>E：非標準狀態電極電位</span>
-            <span>E°：標準電極電位</span>
-            <span>n：轉移電子數</span>
-            <span>Q：反應商（產物/反應物）</span>
+            <span>$$E$$：非標準狀態電極電位</span>
+            <span>$$E°$$：標準電極電位</span>
+            <span>$$n$$：轉移電子數</span>
+            <span>$$Q$$：反應商（產物/反應物）</span>
           </div>
           <img class="slide-img" src="images/electrochem/page12.png" alt="Nernst 方程式" onclick="openLightbox(this)">
 
@@ -602,15 +605,15 @@
           <img class="slide-img" src="images/electrochem/page13.png" alt="Nernst 範例" onclick="openLightbox(this)">
 
           <h3>Example 22-2 — Cd²⁺ 非標準濃度</h3>
-          <p>[Cd²⁺] = 0.0150 M，求電極電位</p>
-          <p>E = −0.403 − (0.0592/2) × log(1/0.0150) = <strong>−0.457 V</strong></p>
+          <p>$$[\text{Cd}^{2+}] = 0.0150\text{ M}$$，求電極電位</p>
+          <p>$$E = -0.403 - \frac{0.0592}{2} \log\frac{1}{0.0150} = -0.457\text{ V}$$</p>
           <p>濃度越低，電位越負（越不利於還原）</p>
           <img class="slide-img" src="images/electrochem/page14.png" alt="Example 22-2" onclick="openLightbox(this)">
 
           <h3>Example A — Ag/AgCl 電極電位</h3>
-          <p>Ksp(AgCl) = 1.82×10⁻¹⁰，[Cl⁻] = 1 M</p>
-          <p>[Ag⁺] = Ksp/[Cl⁻] = 1.82×10⁻¹⁰ M</p>
-          <p>E = 0.799 + 0.0592 × log(1.82×10⁻¹⁰) = <strong>0.222 V</strong></p>
+          <p>$$K_{sp}(\text{AgCl}) = 1.82 \times 10^{-10}$$，$$[\text{Cl}^-] = 1\text{ M}$$</p>
+          <p>$$[\text{Ag}^+] = \frac{K_{sp}}{[\text{Cl}^-]} = 1.82 \times 10^{-10}\text{ M}$$</p>
+          <p>$$E = 0.799 + 0.0592 \times \log(1.82 \times 10^{-10}) = 0.222\text{ V}$$</p>
           <img class="slide-img" src="images/electrochem/page15.png" alt="Ag/AgCl 計算" onclick="openLightbox(this)">
           <img class="slide-img" src="images/electrochem/page16.png" alt="Example A 詳解" onclick="openLightbox(this)">
         </div>
@@ -685,15 +688,15 @@
           <img class="slide-img" src="images/electrochem/page28.png" alt="CV 可逆性判斷" onclick="openLightbox(this)">
 
           <h3>Randles-Ševčík 方程式</h3>
-          <div class="formula-card">i_p = (2.69×10⁵) × n^(3/2) × A × C × D^(1/2) × v^(1/2)</div>
+          <div class="formula-card">$$i_p = (2.69 \times 10^5) \cdot n^{3/2} \cdot A \cdot C \cdot D^{1/2} \cdot v^{1/2}$$</div>
           <div class="formula-desc">
-            <span>n：轉移電子數</span>
-            <span>A：電極面積 (cm²)</span>
-            <span>C：濃度 (mol/cm³)</span>
-            <span>D：擴散係數</span>
-            <span>v：掃描速率 (V/s)</span>
+            <span>$$n$$：轉移電子數</span>
+            <span>$$A$$：電極面積 (cm²)</span>
+            <span>$$C$$：濃度 (mol/cm³)</span>
+            <span>$$D$$：擴散係數</span>
+            <span>$$v$$：掃描速率 (V/s)</span>
           </div>
-          <p><strong>i_p ∝ C（定量基礎）、i_p ∝ v^(1/2)（掃越快峰越高）</strong></p>
+          <p><strong>$$i_p \propto C$$（定量基礎）、$$i_p \propto v^{1/2}$$（掃越快峰越高）</strong></p>
           <img class="slide-img" src="images/electrochem/page29.png" alt="Randles-Ševčík" onclick="openLightbox(this)">
           <img class="slide-img" src="images/electrochem/page30.png" alt="CV 應用" onclick="openLightbox(this)">
 
@@ -904,67 +907,67 @@
         <h2>Ch20 質譜法</h2>
 
         <h3>離子加速動能</h3>
-        <div class="formula-card">KE = zeV</div>
+        <div class="formula-card">$$$$KE = zeV$$$$</div>
         <div class="formula-desc">
-          <span>z = 電荷數</span>
-          <span>e = 1.6×10⁻¹⁹ C</span>
-          <span>V = 加速電壓</span>
+          <span>$$z$$ = 電荷數</span>
+          <span>$$e = 1.6 \times 10^{-19}\text{ C}$$</span>
+          <span>$$V$$ = 加速電壓</span>
         </div>
 
         <h3>磁扇區質譜儀</h3>
-        <div class="formula-card">m/z = B²r²e / 2V</div>
+        <div class="formula-card">$$\frac{m}{z} = \frac{B^2 r^2 e}{2V}$$</div>
         <div class="formula-desc">
-          <span>B = 磁場強度 (T)</span>
-          <span>r = 曲率半徑 (m)</span>
-          <span>e = 1.6×10⁻¹⁹ C</span>
-          <span>V = 加速電壓 (V)</span>
+          <span>$$B$$ = 磁場強度 (T)</span>
+          <span>$$r$$ = 曲率半徑 (m)</span>
+          <span>$$e = 1.6 \times 10^{-19}\text{ C}$$</span>
+          <span>$$V$$ = 加速電壓 (V)</span>
         </div>
 
         <h3>磁扇區加速電壓</h3>
-        <div class="formula-card">V = B²r²ze / 2m</div>
+        <div class="formula-card">$$V = \frac{B^2 r^2 z e}{2m}$$</div>
         <div class="formula-desc">
-          <span>m 用 kg（amu / 6.02×10²³）</span>
-          <span>r 用 m（cm / 100）</span>
+          <span>$$m$$ 用 kg（$$\text{amu} / 6.02 \times 10^{23}$$）</span>
+          <span>$$r$$ 用 m（cm / 100）</span>
         </div>
 
         <h3>解析度</h3>
-        <div class="formula-card">R = m̄ / Δm</div>
+        <div class="formula-card">$$R = \frac{\bar{m}}{\Delta m}$$</div>
         <div class="formula-desc">
-          <span>m̄ = 兩峰質量平均值</span>
-          <span>Δm = 兩峰質量差</span>
+          <span>$$\bar{m}$$ = 兩峰質量平均值</span>
+          <span>$$\Delta m$$ = 兩峰質量差</span>
         </div>
 
         <h3>同位素比例</h3>
-        <div class="formula-card">Cl: ³⁵Cl:³⁷Cl = 3:1 → M:M+2 ≈ 3:1</div>
-        <div class="formula-card">Br: ⁷⁹Br:⁸¹Br ≈ 1:1 → M:M+2 ≈ 1:1</div>
-        <div class="formula-card">雙 Cl: M:M+2:M+4 = 9:6:1</div>
+        <div class="formula-card">$${}^{35}\text{Cl} : {}^{37}\text{Cl} = 3:1 \Rightarrow M:M+2 \approx 3:1$$</div>
+        <div class="formula-card">$${}^{79}\text{Br} : {}^{81}\text{Br} \approx 1:1 \Rightarrow M:M+2 \approx 1:1$$</div>
+        <div class="formula-card">雙 Cl: $$M:M+2:M+4 = 9:6:1$$</div>
 
         <h2>Ch22-25 電分析化學</h2>
 
         <h3>電池電位</h3>
-        <div class="formula-card">E_cell = E_right − E_left</div>
+        <div class="formula-card">$$E_{\text{cell}} = E_{\text{right}} - E_{\text{left}}$$</div>
 
         <h3>Nernst 方程式 (25°C)</h3>
-        <div class="formula-card">E = E° − (0.0592/n) × log([C]^c[D]^d / [A]^a[B]^b)</div>
+        <div class="formula-card">$$E = E° - \frac{0.0592}{n} \log \frac{[\text{C}]^c [\text{D}]^d}{[\text{A}]^a [\text{B}]^b}$$</div>
         <div class="formula-desc">
-          <span>E° = 標準電極電位</span>
-          <span>n = 轉移電子數</span>
+          <span>$$E°$$ = 標準電極電位</span>
+          <span>$$n$$ = 轉移電子數</span>
           <span>固體和純液體濃度 = 1</span>
           <span>0.0592 只在 25°C 適用</span>
         </div>
 
         <h3>Ksp 結合 Nernst</h3>
-        <div class="formula-card">E = E° + (0.0592/n) × log(Ksp / [Cl⁻])</div>
+        <div class="formula-card">$$E = E° + \frac{0.0592}{n} \log \frac{K_{sp}}{[\text{Cl}^-]}$$</div>
         <p>（以 Ag/AgCl 為例）</p>
 
         <h3>CV 可逆反應</h3>
-        <div class="formula-card">E° = (E_氧化峰 + E_還原峰) / 2</div>
-        <div class="formula-card">ΔE_p ≈ 59/n mV (25°C)</div>
+        <div class="formula-card">$$E° = \frac{E_{\text{氧化峰}} + E_{\text{還原峰}}}{2}$$</div>
+        <div class="formula-card">$$\Delta E_p \approx \frac{59}{n}\text{ mV} \quad (25°C)$$</div>
 
         <h3>Randles-Ševčík</h3>
-        <div class="formula-card">i_p = (2.69×10⁵) × n^(3/2) × A × C × D^(1/2) × v^(1/2)</div>
+        <div class="formula-card">$$i_p = (2.69 \times 10^5) \cdot n^{3/2} \cdot A \cdot C \cdot D^{1/2} \cdot v^{1/2}$$</div>
         <div class="formula-desc">
-          <span>n = 轉移電子數</span>
+          <span>$$n$$ = 轉移電子數</span>
           <span>A = 電極面積 (cm²)</span>
           <span>C = 濃度 (mol/cm³)</span>
           <span>D = 擴散係數 (cm²/s)</span>
@@ -972,7 +975,7 @@
         </div>
 
         <h3>參考電極電位</h3>
-        <div class="formula-card">SHE: E° = 0.000 V | SCE: E° = +0.244 V | Ag/AgCl: E° = +0.197 V</div>
+        <div class="formula-card">$$\text{SHE}: E° = 0.000\text{ V} \quad \text{SCE}: E° = +0.244\text{ V} \quad \text{Ag/AgCl}: E° = +0.197\text{ V}$$</div>
       </div>
 
       <!-- ========== 考題預測 ========== -->
@@ -998,7 +1001,7 @@
         <div class="card">
           <div class="card-title">2. 磁扇區計算</div>
           <p>給 B, r, V, m/z 中的三個求第四個</p>
-          <p>公式：m/z = B²r²e / 2V</p>
+          <p>公式：$$\frac{m}{z} = \frac{B^2 r^2 e}{2V}$$</p>
           <p>⚠️ 注意單位：r 要換算成 m，m 要換算成 kg</p>
         </div>
 
@@ -1107,5 +1110,6 @@
   </div>
   <script src="app.js"></script>
   <script src="quiz.js"></script>
+
 </body>
 </html>
